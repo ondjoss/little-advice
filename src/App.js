@@ -16,7 +16,7 @@ class App extends React.Component{
 
                 const {advice} = response.data.slip;
                 
-                console.log(advice);
+                this.setState({advice});
 
             })
             .catch((error) => {
@@ -26,8 +26,15 @@ class App extends React.Component{
     }
 
     render(){
+
+        const {advice} = this.state;
+
         return(
-            <h1>My Advices</h1>
+            <div className="app">
+                <div className="card">
+                    <h1 className='heading'>{advice}</h1>
+                </div>
+            </div>
         );
     }
 }
